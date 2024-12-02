@@ -25,24 +25,32 @@ repos:
     hooks:
       - id: flake8
 
-  # - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
-  #   rev: v2.0.4
-  #   hooks:
-  #     - id: check-model-has-description
-  #       args: ["--manifest", "chapter_10/snowflakebook/target/manifest.json"]
-  #     - id: check-model-has-tests-by-group
-  #       args: ["--tests", "not_null", "--test-cnt", "1"]
-  #     - id: check-model-has-tests-by-group
-  #       args:
-  #         [
-  #           "--tests",
-  #           "unique",
-  #           "unique_combination_of_columns",
-  #           "--test-cnt",
-  #           "1",
-  #           "--manifest",
-  #           "chapter_10/snowflakebook/target/manifest.json",
-  #         ]
+  - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    rev: v2.0.4
+    hooks:
+      - id: check-model-has-description
+        args: ["--manifest", "chapter_10/snowflakebook/target/manifest.json"]
+      - id: check-model-has-tests-by-group
+        args:
+          [
+            "--tests",
+            "not_null",
+            "--test-cnt",
+            "1",
+            "--manifest",
+            "chapter_10/snowflakebook/target/manifest.json",
+          ]
+      - id: check-model-has-tests-by-group
+        args:
+          [
+            "--tests",
+            "unique",
+            "unique_combination_of_columns",
+            "--test-cnt",
+            "1",
+            "--manifest",
+            "chapter_10/snowflakebook/target/manifest.json",
+          ]
 
   - repo: https://github.com/sqlfluff/sqlfluff
     rev: 3.1.1

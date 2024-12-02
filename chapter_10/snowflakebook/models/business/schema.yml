@@ -6,12 +6,12 @@ models:
     columns:
       - name: customer_key
         description: "Primary key for the customer"
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: market_segment
         description: "Market segment of the customer"
-        tests:
+        data_tests:
           - not_null
           - accepted_values:
               values:
@@ -24,11 +24,11 @@ models:
                 ]
       - name: nation_name
         description: "Name of the customer's nation"
-        tests:
+        data_tests:
           - not_null
       - name: region_name
         description: "Name of the customer's region"
-        tests:
+        data_tests:
           - not_null
           - accepted_values:
               values: ["AFRICA", "AMERICA", "ASIA", "EUROPE", "MIDDLE EAST"]
@@ -38,41 +38,41 @@ models:
     columns:
       - name: product_key
         description: "Primary key for the product"
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: manufacturer
         description: "Manufacturer of the product"
-        tests:
+        data_tests:
           - not_null
       - name: retail_price
         description: "Retail price of the product"
-        tests:
+        data_tests:
           - not_null
 
-  - name: fact_orders
+  - name: fact_order
     description: "Fact table capturing order and line item details"
     columns:
       - name: order_key
         description: "Primary key for the order"
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: customer_key
         description: "Foreign key to the customer dimension"
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('dim_customer')
               field: customer_key
       - name: product_key
         description: "Foreign key to the product dimension"
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('dim_product')
               field: product_key
       - name: final_price
         description: "Final price after discounts and taxes"
-        tests:
+        data_tests:
           - not_null

@@ -118,6 +118,7 @@ models:
         description: "Foreign key to orders"
         data_tests:
           - not_null
+          - unique
       - name: part_key
         description: "Foreign key to part"
         data_tests:
